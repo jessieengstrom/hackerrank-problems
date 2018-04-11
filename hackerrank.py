@@ -102,4 +102,18 @@ def Insert(head, data):
         
     current.next = new
     return head
+
+
+"""
+Node is defined as
+self.left (the left child of the node)
+self.right (the right child of the node)
+self.data (the value of the node)
+"""
+def preOrder(root):
+    """Pre-order tree traversal."""
+    if root:
+        print root.data,
+        preOrder(root.left) 
+        preOrder(root.right) 
   
