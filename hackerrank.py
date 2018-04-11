@@ -110,10 +110,59 @@ self.left (the left child of the node)
 self.right (the right child of the node)
 self.data (the value of the node)
 """
+
 def preOrder(root):
     """Pre-order tree traversal."""
     if root:
         print root.data,
         preOrder(root.left) 
         preOrder(root.right) 
+
+"""
+class Node:
+      def __init__(self,info): 
+          self.info = info  
+          self.left = None  
+          self.right = None 
+           
+
+       // this is a node of the tree , which contains info as data, left , right
+"""
+
+def height(root):
+    """Get the height of the tree."""
+    if not root:
+        return -1
+    height_left = 1 + height(root.left)
+    height_right = 1 + height(root.right)
+    
+    return max(height_left, height_right)
+
+
+"""
+Node is defined as
+self.left (the left child of the node)
+self.right (the right child of the node)
+self.data (the value of the node)
+"""
+def levelOrder(root):
+   """Print tree nodes in level order."""
+    to_visit = [root]
+    seen = []
+    
+    while to_visit:
+        current = to_visit.pop(0)
+        seen.append(current.data)
+        
+        if current.left != None and current.right != None:
+            to_visit.extend([current.left, current.right])
+        elif current.left != None:
+            to_visit.append(current.left)
+        elif current.right != None:
+            to_visit.append(current.right)
+        else:
+            continue
+        
+    for item in seen:
+        print item,
   
