@@ -165,4 +165,22 @@ def levelOrder(root):
         
     for item in seen:
         print item,
+
+
+def insert(r,val):
+   """Insert a node into a binary search tree."""
+    if r is None:
+        r = Node(val)
+    elif val < r.data:
+        if r.left is None:
+            r.left = Node(val)
+        else:
+            insert(r.left, val)        
+    elif val > r:
+        if r.right is None:
+            r.right = Node(val)
+        else:
+            insert(r.right, val)
+            
+    return r
   
